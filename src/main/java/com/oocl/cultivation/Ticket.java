@@ -2,14 +2,22 @@ package com.oocl.cultivation;
 
 public class Ticket {
     private String ID;
-    private String CarID;
+    private String carID;
 
     public Ticket(String ID, String carID) {
         this.ID = ID;
-        CarID = carID;
+        this.carID = carID;
     }
 
     public String getID() {
         return ID;
+    }
+
+    public String getCarID() {
+        return carID;
+    }
+
+    public boolean isValid(Ticket ticket) {
+        return true;
     }
 }

@@ -8,10 +8,6 @@ public class Car {
         return ID;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
-    }
-
     public Car(String ID) {
         this.ID = ID;
         this.state = 0;
