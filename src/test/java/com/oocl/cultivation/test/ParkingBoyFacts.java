@@ -15,6 +15,17 @@ class ParkingBoyFacts {
         //when
         String result = parkingBoy.parking(car);
         //then
-        assertEquals("car is null",result);
+        assertEquals("no car",result);
+    }
+
+    @Test
+    void should_return_ticketNum_when_parking_succeed() {
+        //given
+        Car car = new Car("1");
+        ParkingBoy parkingBoy = new ParkingBoy();
+        //when
+        String result = parkingBoy.parking(car);
+        //then
+        assertEquals("1",result);
     }
 }
