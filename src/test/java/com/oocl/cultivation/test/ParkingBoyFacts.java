@@ -2,6 +2,7 @@ package com.oocl.cultivation.test;
 
 import com.oocl.cultivation.Car;
 import com.oocl.cultivation.ParkingBoy;
+import com.oocl.cultivation.Ticket;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,19 +14,20 @@ class ParkingBoyFacts {
         Car car = null;
         ParkingBoy parkingBoy = new ParkingBoy();
         //when
-        String result = parkingBoy.parking(car);
+        Ticket result = parkingBoy.parking(car);
         //then
-        assertEquals("no car",result);
+        assertEquals(null, result);
     }
 
     @Test
-    void should_return_ticketNum_when_parking_succeed() {
+    void should_return_ticket_when_parking_succeed() {
         //given
         Car car = new Car("1");
         ParkingBoy parkingBoy = new ParkingBoy();
         //when
-        String result = parkingBoy.parking(car);
+        Ticket result = parkingBoy.parking(car);
         //then
-        assertEquals("1",result);
+        assertEquals(new Ticket("1", "1").getID(), result.getID());
     }
+
 }
