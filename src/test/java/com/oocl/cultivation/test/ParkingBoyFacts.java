@@ -52,4 +52,16 @@ class ParkingBoyFacts {
         //then
         assertEquals(null, result);
     }
+
+    @Test
+    void should_return_no_car_when_fetching_given_used_ticket_parkingBoy() {
+        //given
+        Ticket ticket = new Ticket("999", "999");
+        ParkingBoy parkingBoy = new ParkingBoy(999);
+        //when
+        Car result = parkingBoy.fetching(ticket);
+        result = parkingBoy.fetching(ticket);
+        //then
+        assertEquals(null, result);
+    }
 }
