@@ -42,4 +42,14 @@ class ParkingBoyFacts {
         assertEquals(new Car("1").getID(), result.getID());
     }
 
+    @Test
+    void should_return_no_car_when_fetching_given_wrong_ticket_parkingBoy() {
+        //given
+        Ticket ticket = new Ticket("999", "999");
+        ParkingBoy parkingBoy = new ParkingBoy(999);
+        //when
+        Car result = parkingBoy.fetching(ticket);
+        //then
+        assertEquals(null, result);
+    }
 }
