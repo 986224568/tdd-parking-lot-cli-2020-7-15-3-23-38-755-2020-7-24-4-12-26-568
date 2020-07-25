@@ -6,11 +6,16 @@ import java.util.Random;
 public abstract class ParkingWorkers {
     public int id;
     public ArrayList<ParkingLot> parkingLotList;
+    public ArrayList<Observer> observerList;
 
+    public void addObserver (Observer observer) {
+        this.observerList.add(observer);
+    }
     public ParkingWorkers(int id) {
         this.id = id;
         parkingLotList = new ArrayList<>();
         parkingLotList.add(new ParkingLot(1, 10));
+        observerList = new ArrayList<>();
     }
 
     public Ticket parking(Car car) {
@@ -33,13 +38,16 @@ public abstract class ParkingWorkers {
         Car car = null;
         if (ticket == null) {
             FailMsg.FAIL_MSG.setMsg("Please provide your parking ticket.");
+            notifyObserver("Please provide your parking ticket.", this);
             return car;
         }
         if (!ticket.isValid()) {
             FailMsg.FAIL_MSG.setMsg("Unrecognized parking ticket.");
+            notifyObserver("Unrecognized parking ticket.", this);
         }
         if (ticket.getState() == State.usedTicket.getIndex()) {
             FailMsg.FAIL_MSG.setMsg("Unrecognized parking ticket.");
+            notifyObserver("Unrecognized parking ticket.", this);
             return car;
         }
         for (ParkingLot parkingLot : parkingLotList) {
@@ -73,5 +81,10 @@ public abstract class ParkingWorkers {
             chars[i] = (char) ('0' + rnd.nextInt(10));
         }
         return new String(chars);
+    }
+    public void notifyObserver(String msg, ParkingWorkers parkingWorkers) {
+        for(Observer observer : this.observerList) {
+            observer.update(msg, parkingWorkers);
+        }
     }
 }

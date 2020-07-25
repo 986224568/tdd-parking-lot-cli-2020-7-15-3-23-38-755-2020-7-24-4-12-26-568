@@ -2,13 +2,9 @@ package com.oocl.cultivation.test;
 
 import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
-import java.io.ByteArrayOutputStream;
-
-import static org.fest.assertions.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ParkingBoyFacts {
-    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+class ParkingBoyFacts { ;
     @Test
     void should_return_false_message_when_parking_null_car() {
         //given
@@ -467,7 +463,5 @@ class ParkingBoyFacts {
         assertEquals(parkingBoy.getId() + "Please provide your parking ticket.", FailMsg.MANAGER_MSG.getMsg());
 
     }
-    private String systemOut() {
-        return outContent.toString();
-    }
+
 }

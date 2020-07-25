@@ -18,6 +18,7 @@ public class ParkingLotManager extends ParkingWorkers implements Observer{
 
     public void addParkingBoys(ParkingWorkers parkingBoy) {
         this.parkingBoys.add(parkingBoy);
+        parkingBoy.addObserver(this);
     }
 
     public ArrayList<ParkingWorkers> getParkingBoys() {
@@ -46,6 +47,6 @@ public class ParkingLotManager extends ParkingWorkers implements Observer{
 
     @Override
     public void update(String msg, ParkingWorkers parkingWorkers) {
-        System.out.printf("%d%s%n", parkingWorkers.getId(), msg);
+        FailMsg.MANAGER_MSG.setMsg(parkingWorkers.getId() + msg);
     }
 }

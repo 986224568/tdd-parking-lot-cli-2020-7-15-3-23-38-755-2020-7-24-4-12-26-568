@@ -1,7 +1,7 @@
 package com.oocl.cultivation;
 
 public enum FailMsg {
-    FAIL_MSG("");
+    FAIL_MSG(""), MANAGER_MSG("");
     private String msg;
 
     FailMsg(String msg) {
