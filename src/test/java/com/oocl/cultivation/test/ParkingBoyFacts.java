@@ -298,4 +298,15 @@ class ParkingBoyFacts {
         //then
         assertEquals(car1, car3);
     }
+
+    @Test
+    void should_return_listSize_when_add_parkingBoy_to_managementlist_of_manager_given_manager_parkingBoy() {
+        //given
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(1);
+        ParkingLotManager parkingLotManager = new ParkingLotManager(1);
+        //when
+        parkingLotManager.addParkingBoys(superSmartParkingBoy);
+        //then
+        assertEquals(1, parkingLotManager.getParkingBoys().size());
+    }
 }
