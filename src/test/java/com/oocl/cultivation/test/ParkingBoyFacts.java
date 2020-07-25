@@ -497,4 +497,17 @@ class ParkingBoyFacts { ;
         assertEquals(parkingBoy.getId() + "Not enough position.", FailMsg.MANAGER_MSG.getMsg());
     }
 
+    @Test
+    void should_return_msg_when_fetshing_given_wrong_ticket_parkingBoy_manager() {
+        //given
+        Ticket ticket = new Ticket("999", "999", 999);
+        ParkingLotManager parkingLotManager = new ParkingLotManager(999);
+        ParkingBoy parkingBoy = new ParkingBoy(999);
+        parkingLotManager.addParkingBoys(parkingBoy);
+        //when
+        Car result = parkingBoy.fetching(ticket);
+        //then
+        assertEquals(parkingBoy.getId() + "Unrecognized parking ticket.", FailMsg.MANAGER_MSG.getMsg());
+    }
+
 }
