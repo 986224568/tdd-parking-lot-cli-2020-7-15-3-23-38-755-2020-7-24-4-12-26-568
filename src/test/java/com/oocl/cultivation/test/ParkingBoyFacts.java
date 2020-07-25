@@ -268,6 +268,19 @@ class ParkingBoyFacts {
         Car car3 = smartParkingBoy.fetching(ticket);
         //then
         assertEquals(car1, car3);
+    }
 
+    @Test
+    void should_use_more_position_lot_when_parking_given_cars_superSmartParkingBoy() {
+        //given
+        Car car = new Car("1");
+        Car car1 = new Car("2");
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(1);
+        superSmartParkingBoy.addParkingLot();
+        //when
+        Ticket result = superSmartParkingBoy.parking(car);
+        result = superSmartParkingBoy.parking(car1);
+        //then
+        assertEquals(2, result.getParkingLotID());
     }
 }
