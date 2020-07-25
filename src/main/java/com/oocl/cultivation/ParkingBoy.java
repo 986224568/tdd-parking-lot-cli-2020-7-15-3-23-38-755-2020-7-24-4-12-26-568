@@ -9,7 +9,8 @@ public class ParkingBoy {
 
     public Ticket parking(Car car) {
         Ticket ticket = null;
-        if (car == null || parkingLot.getMaxNum() == 0) {
+        if (car == null || parkingLot.getMaxNum() <= 0) {
+            FailMsg.FAIL_MSG.setMsg("Not enough position.");
             return ticket;
         }
         ticket = new Ticket(car.getID(), car.getID());
