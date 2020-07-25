@@ -9,7 +9,7 @@ public class ParkingBoy {
 
     public Ticket parking(Car car) {
         Ticket ticket = null;
-        if (car == null || parkingLot.getMaxNum() > 10) {
+        if (car == null || parkingLot.getMaxNum() == 0) {
             return ticket;
         }
         ticket = new Ticket(car.getID(), car.getID());
