@@ -1,9 +1,6 @@
 package com.oocl.cultivation.test;
 
-import com.oocl.cultivation.Car;
-import com.oocl.cultivation.FailMsg;
-import com.oocl.cultivation.ParkingBoy;
-import com.oocl.cultivation.Ticket;
+import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -209,5 +206,20 @@ class ParkingBoyFacts {
         result = parkingBoy.parking(car10);
         //then
         assertEquals(2, result.getParkingLotID());
+    }
+
+    @Test
+    void should_use_more_position_lot_when_parking_given_cars_smartParkingBoy() {
+        //given
+        Car car = new Car("1");
+        Car car1 = new Car("2");
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(1);
+        smartParkingBoy.addParkingLot();
+        //when
+        Ticket result = smartParkingBoy.parking(car);
+        result = smartParkingBoy.parking(car1);
+        //then
+        assertEquals(2, result.getParkingLotID());
+
     }
 }
