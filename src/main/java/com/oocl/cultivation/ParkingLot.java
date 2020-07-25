@@ -36,6 +36,20 @@ public class ParkingLot {
         return car;
     }
 
+    public Car fetching(Ticket ticket, SmartParkingBoy smartParkingBoy) {
+        Car car = null;
+        if (ticket != null && ticket.isValid()) {
+            for (Car car1 : carList) {
+                if (car1.getID() == ticket.getCarID()) {
+                    car = car1;
+                    break;
+                }
+            }
+            left++;
+        }
+        return car;
+    }
+
     public int getMaxNum() {
         return left;
     }
