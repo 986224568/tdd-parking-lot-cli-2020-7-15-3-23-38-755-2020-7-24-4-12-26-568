@@ -111,4 +111,21 @@ class ParkingBoyFacts {
         }
         assertEquals("Unrecognized parking ticket.", msg);
     }
+
+    @Test
+    void should_return_msg_when_fetshing_given_used_ticket_parkingBoy() {
+        //given
+        Car car = new Car("1");
+        ParkingBoy parkingBoy = new ParkingBoy(999);
+        Ticket ticket = parkingBoy.parking(car);
+        //when
+        Car result = parkingBoy.fetching(ticket);
+        result = parkingBoy.fetching(ticket);
+        //then
+        String msg = "";
+        if (result == null) {
+            msg = parkingBoy.getFailMsg();
+        }
+        assertEquals("Unrecognized parking ticket.", msg);
+    }
 }
