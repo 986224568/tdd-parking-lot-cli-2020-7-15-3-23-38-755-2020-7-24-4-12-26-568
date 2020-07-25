@@ -19,7 +19,7 @@ public class ParkingBoy {
 
     public Car fetching(Ticket ticket) {
         Car car = null;
-        if (parkingLot.getCarByID(ticket.getCarID()).getState() == State.parkedCar.getIndex()) {
+        if (ticket.isValid() && parkingLot.getCarByID(ticket.getCarID()).getState() == State.parkedCar.getIndex()) {
             car = parkingLot.fetching(ticket, this);
             return car;
         }

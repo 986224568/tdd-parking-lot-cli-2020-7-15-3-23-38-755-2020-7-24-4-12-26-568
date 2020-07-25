@@ -18,6 +18,6 @@ public class Ticket {
     }
 
     public boolean isValid() {
-        return true;
+        return this.ID.length() < 2;
     }
 }
