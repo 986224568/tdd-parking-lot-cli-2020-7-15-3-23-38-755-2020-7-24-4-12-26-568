@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 public class ParkingLot {
     private ArrayList<Car> carList;
-    private static int left;
+    private  int left;
+    private int ID;
 
-    public ParkingLot() {
+    public ParkingLot(int ID) {
+        this.ID = ID;
         carList = new ArrayList<>();
         left = 10;
     }
@@ -34,7 +36,7 @@ public class ParkingLot {
         return car;
     }
 
-    public static int getMaxNum() {
+    public int getMaxNum() {
         return left;
     }
 
@@ -45,5 +47,13 @@ public class ParkingLot {
             }
         }
         return null;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 }

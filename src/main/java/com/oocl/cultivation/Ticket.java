@@ -4,6 +4,7 @@ public class Ticket {
     private String ID;
     private String carID;
     private int state;
+    private int ParkingLotID;
 
     public int getState() {
         return state;
@@ -13,10 +14,11 @@ public class Ticket {
         this.state = state;
     }
 
-    public Ticket(String ID, String carID) {
+    public Ticket(String ID, String carID, int ParkingLotID) {
         this.ID = ID;
         this.carID = carID;
         this.state = State.notUsedTicket.getIndex();
+        this.ParkingLotID = ParkingLotID;
     }
 
     public String getID() {
@@ -29,5 +31,13 @@ public class Ticket {
 
     public boolean isValid() {
         return this.ID.length() < 2;
+    }
+
+    public int getParkingLotID() {
+        return ParkingLotID;
+    }
+
+    public void setParkingLotID(int parkingLotID) {
+        ParkingLotID = parkingLotID;
     }
 }
