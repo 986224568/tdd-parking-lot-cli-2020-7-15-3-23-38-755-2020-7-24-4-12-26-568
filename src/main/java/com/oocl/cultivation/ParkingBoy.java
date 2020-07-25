@@ -42,4 +42,8 @@ public class ParkingBoy {
         this.id = id;
         parkingLot = new ParkingLot();
     }
+
+    public String getFailMsg() {
+        return FailMsg.FAIL_MSG.getMsg();
+    }
 }

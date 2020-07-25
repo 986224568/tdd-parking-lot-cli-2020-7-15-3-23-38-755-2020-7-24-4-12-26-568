@@ -1,6 +1,7 @@
 package com.oocl.cultivation.test;
 
 import com.oocl.cultivation.Car;
+import com.oocl.cultivation.FailMsg;
 import com.oocl.cultivation.ParkingBoy;
 import com.oocl.cultivation.Ticket;
 import org.junit.jupiter.api.Test;
@@ -94,5 +95,20 @@ class ParkingBoyFacts {
         result = parkingBoy.parking(car10);
         //then
         assertEquals(null, result);
+    }
+
+    @Test
+    void should_return_msg_when_fetshing_given_wrong_ticket_parkingBoy() {
+        //given
+        Ticket ticket = new Ticket("999", "999");
+        ParkingBoy parkingBoy = new ParkingBoy(999);
+        //when
+        Car result = parkingBoy.fetching(ticket);
+        //then
+        String msg = "";
+        if (result == null) {
+            msg = parkingBoy.getFailMsg();
+        }
+        assertEquals("Unrecognized parking ticket.", msg);
     }
 }
