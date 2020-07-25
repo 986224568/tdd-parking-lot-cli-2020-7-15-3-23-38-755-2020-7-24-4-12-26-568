@@ -2,10 +2,13 @@ package com.oocl.cultivation.test;
 
 import com.oocl.cultivation.*;
 import org.junit.jupiter.api.Test;
+import java.io.ByteArrayOutputStream;
 
+import static org.fest.assertions.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ParkingBoyFacts {
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     @Test
     void should_return_false_message_when_parking_null_car() {
         //given
@@ -400,20 +403,20 @@ class ParkingBoyFacts {
         Car car8 = new Car("9");
         Car car9 = new Car("10");
         Car car10 = new Car("11");
-        ParkingBoy parkingBoy = new ParkingBoy(1);
-        parkingBoy.addParkingLot(10);
+        ParkingLotManager parkingLotManager = new ParkingLotManager(1);
+        parkingLotManager.addParkingLot(10);
         //when
-        Ticket result = parkingBoy.parking(car);
-        result = parkingBoy.parking(car1);
-        result = parkingBoy.parking(car2);
-        result = parkingBoy.parking(car3);
-        result = parkingBoy.parking(car4);
-        result = parkingBoy.parking(car5);
-        result = parkingBoy.parking(car6);
-        result = parkingBoy.parking(car7);
-        result = parkingBoy.parking(car8);
-        result = parkingBoy.parking(car9);
-        result = parkingBoy.parking(car10);
+        Ticket result = parkingLotManager.parking(car);
+        result = parkingLotManager.parking(car1);
+        result = parkingLotManager.parking(car2);
+        result = parkingLotManager.parking(car3);
+        result = parkingLotManager.parking(car4);
+        result = parkingLotManager.parking(car5);
+        result = parkingLotManager.parking(car6);
+        result = parkingLotManager.parking(car7);
+        result = parkingLotManager.parking(car8);
+        result = parkingLotManager.parking(car9);
+        result = parkingLotManager.parking(car10);
         //then
         assertEquals(2, result.getParkingLotID());
     }
@@ -449,5 +452,22 @@ class ParkingBoyFacts {
         Car car11 = parkingBoy.fetching(ticket);
         //then
         assertEquals(car10, car11);
+    }
+
+    @Test
+    void should_return_msg_when_fetching_with_no_ticket_given_car_manager_parkingBoy() {
+        //given
+        Ticket ticket = null;
+        ParkingBoy parkingBoy = new ParkingBoy(999);
+        ParkingLotManager parkingLotManager = new ParkingLotManager(1);
+        parkingLotManager.addParkingBoys(parkingBoy);
+        //when
+        Car result = parkingBoy.fetching(ticket);
+        //then
+        assertEquals(parkingBoy.getId() + "Please provide your parking ticket.", FailMsg.MANAGER_MSG.getMsg());
+
+    }
+    private String systemOut() {
+        return outContent.toString();
     }
 }
