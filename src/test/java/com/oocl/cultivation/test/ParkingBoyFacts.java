@@ -385,4 +385,36 @@ class ParkingBoyFacts {
         }
         assertEquals("Please provide your parking ticket.", msg);
     }
+
+    @Test
+    void should_return_new_parking_lotID_when_parking_more_than_one_lot_given_car_manager() {
+        //given
+        Car car = new Car("1");
+        Car car1 = new Car("2");
+        Car car2 = new Car("3");
+        Car car3 = new Car("4");
+        Car car4 = new Car("5");
+        Car car5 = new Car("6");
+        Car car6 = new Car("7");
+        Car car7 = new Car("8");
+        Car car8 = new Car("9");
+        Car car9 = new Car("10");
+        Car car10 = new Car("11");
+        ParkingBoy parkingBoy = new ParkingBoy(1);
+        parkingBoy.addParkingLot();
+        //when
+        Ticket result = parkingBoy.parking(car);
+        result = parkingBoy.parking(car1);
+        result = parkingBoy.parking(car2);
+        result = parkingBoy.parking(car3);
+        result = parkingBoy.parking(car4);
+        result = parkingBoy.parking(car5);
+        result = parkingBoy.parking(car6);
+        result = parkingBoy.parking(car7);
+        result = parkingBoy.parking(car8);
+        result = parkingBoy.parking(car9);
+        result = parkingBoy.parking(car10);
+        //then
+        assertEquals(2, result.getParkingLotID());
+    }
 }
