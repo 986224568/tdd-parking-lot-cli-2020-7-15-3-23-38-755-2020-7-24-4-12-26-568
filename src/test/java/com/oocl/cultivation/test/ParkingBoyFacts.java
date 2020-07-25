@@ -370,4 +370,19 @@ class ParkingBoyFacts {
         }
         assertEquals("Not enough position.", msg);
     }
+
+    @Test
+    void should_return_msg_when_fetching_with_no_ticket_given_car_manager() {
+        //given
+        Ticket ticket = null;
+        ParkingBoy parkingBoy = new ParkingBoy(999);
+        //when
+        Car result = parkingBoy.fetching(ticket);
+        //then
+        String msg = "";
+        if (result == null) {
+            msg = parkingBoy.getFailMsg();
+        }
+        assertEquals("Please provide your parking ticket.", msg);
+    }
 }
