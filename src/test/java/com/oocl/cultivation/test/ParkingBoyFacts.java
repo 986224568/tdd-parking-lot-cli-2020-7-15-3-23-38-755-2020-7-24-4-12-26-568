@@ -247,7 +247,7 @@ class ParkingBoyFacts {
         Car car = new Car("1");
         Car car1 = new Car("2");
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(1);
-        smartParkingBoy.addParkingLot();
+        smartParkingBoy.addParkingLot(10);
         //when
         Ticket result = smartParkingBoy.parking(car);
         result = smartParkingBoy.parking(car1);
@@ -261,7 +261,7 @@ class ParkingBoyFacts {
         Car car = new Car("1");
         Car car1 = new Car("2");
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(1);
-        smartParkingBoy.addParkingLot();
+        smartParkingBoy.addParkingLot(10);
         //when
         Ticket ticket = smartParkingBoy.parking(car);
         ticket = smartParkingBoy.parking(car1);
@@ -276,7 +276,7 @@ class ParkingBoyFacts {
         Car car = new Car("1");
         Car car1 = new Car("2");
         SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(1);
-        superSmartParkingBoy.addParkingLot();
+        superSmartParkingBoy.addParkingLot(10);
         //when
         Ticket result = superSmartParkingBoy.parking(car);
         result = superSmartParkingBoy.parking(car1);
