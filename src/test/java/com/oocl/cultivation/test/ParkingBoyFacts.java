@@ -309,4 +309,15 @@ class ParkingBoyFacts {
         //then
         assertEquals(1, parkingLotManager.getParkingBoys().size());
     }
+
+    @Test
+    void should_return_ticket_when_parking_given_manager_car() {
+        //given
+        ParkingLotManager parkingLotManager = new ParkingLotManager(1);
+        Car car = new Car("1");
+        //when
+        Ticket ticket = parkingLotManager.parking(car);
+        //then
+        assertEquals("1", ticket.getCarID());
+    }
 }
