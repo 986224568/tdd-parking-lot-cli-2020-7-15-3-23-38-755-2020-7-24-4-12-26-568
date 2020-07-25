@@ -100,7 +100,7 @@ class ParkingBoyFacts {
     @Test
     void should_return_msg_when_fetshing_given_wrong_ticket_parkingBoy() {
         //given
-        Ticket ticket = new Ticket("999", "999");
+        Ticket ticket = null;
         ParkingBoy parkingBoy = new ParkingBoy(999);
         //when
         Car result = parkingBoy.fetching(ticket);
