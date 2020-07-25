@@ -20,7 +20,7 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_ticket_when_parking_succeed() {
+    void should_return_ticket_when_parking_succeed_given_car_parkingBoy() {
         //given
         Car car = new Car("1");
         ParkingBoy parkingBoy = new ParkingBoy(1);
@@ -31,10 +31,11 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_return_car_when_fetching_succeed() {
+    void should_return_car_when_fetching_succeed_given_car_ParkingBoy() {
         //given
-        Ticket ticket = new Ticket("1",new Car("1").getID());
+        Car car = new Car("1");
         ParkingBoy parkingBoy = new ParkingBoy(1);
+        Ticket ticket = parkingBoy.parking(car);
         //when
         Car result = parkingBoy.fetching(ticket);
         //then
