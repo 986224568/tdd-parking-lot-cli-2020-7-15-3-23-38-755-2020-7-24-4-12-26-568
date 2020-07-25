@@ -11,6 +11,7 @@ public class ParkingLot {
         left = 10;
     }
 
+
     public void parking(Car car) {
         if (car != null && car.getState() == State.notParkedCar.getIndex() && left > 0) {
             carList.add(car);
