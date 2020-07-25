@@ -2,9 +2,8 @@ package com.oocl.cultivation;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.stream.Stream;
 
-public class ParkingBoy {
+public class ParkingBoy implements ParkingBoys {
     private int id;
     private ArrayList<ParkingLot> parkingLotList;
 

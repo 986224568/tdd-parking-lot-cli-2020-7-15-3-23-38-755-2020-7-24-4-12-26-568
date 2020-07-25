@@ -1,11 +1,9 @@
 package com.oocl.cultivation;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Random;
-import java.util.stream.Collectors;
 
-public class SmartParkingBoy {
+public class SmartParkingBoy implements ParkingBoys {
     private int id;
     private ArrayList<ParkingLot> parkingLotList;
 
