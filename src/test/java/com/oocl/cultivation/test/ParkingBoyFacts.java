@@ -320,4 +320,20 @@ class ParkingBoyFacts {
         //then
         assertEquals("1", ticket.getCarID());
     }
+
+    @Test
+    void should_return_msg_when_fetshing_given_wrong_ticket_manager() {
+        //given
+        Ticket ticket = new Ticket("999", "999", 999);
+        ParkingLotManager parkingLotManager = new ParkingLotManager(999);
+        //when
+        Car result = parkingLotManager.fetching(ticket);
+        //then
+        String msg = "";
+        if (result == null) {
+            msg = parkingLotManager.getFailMsg();
+        }
+        assertEquals("Unrecognized parking ticket.", msg);
+    }
+
 }
