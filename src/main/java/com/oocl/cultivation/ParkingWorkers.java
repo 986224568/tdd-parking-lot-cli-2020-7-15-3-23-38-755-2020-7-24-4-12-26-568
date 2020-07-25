@@ -32,6 +32,7 @@ public abstract class ParkingWorkers {
             }
         }
         FailMsg.FAIL_MSG.setMsg("Not enough position.");
+        notifyObserver("Not enough position.", this);
         return ticket;
     }
     public Car fetching(Ticket ticket) {
