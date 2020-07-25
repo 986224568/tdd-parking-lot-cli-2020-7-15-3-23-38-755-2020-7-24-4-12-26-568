@@ -431,21 +431,21 @@ class ParkingBoyFacts { ;
         Car car8 = new Car("9");
         Car car9 = new Car("10");
         Car car10 = new Car("11");
-        ParkingBoy parkingBoy = new ParkingBoy(1);
-        parkingBoy.addParkingLot(10);
+        ParkingLotManager parkingLotManager = new ParkingLotManager(1);
+        parkingLotManager.addParkingLot(10);
         //when
-        Ticket ticket = parkingBoy.parking(car);
-        ticket = parkingBoy.parking(car1);
-        ticket = parkingBoy.parking(car2);
-        ticket = parkingBoy.parking(car3);
-        ticket = parkingBoy.parking(car4);
-        ticket = parkingBoy.parking(car5);
-        ticket = parkingBoy.parking(car6);
-        ticket = parkingBoy.parking(car7);
-        ticket = parkingBoy.parking(car8);
-        ticket = parkingBoy.parking(car9);
-        ticket = parkingBoy.parking(car10);
-        Car car11 = parkingBoy.fetching(ticket);
+        Ticket ticket = parkingLotManager.parking(car);
+        ticket = parkingLotManager.parking(car1);
+        ticket = parkingLotManager.parking(car2);
+        ticket = parkingLotManager.parking(car3);
+        ticket = parkingLotManager.parking(car4);
+        ticket = parkingLotManager.parking(car5);
+        ticket = parkingLotManager.parking(car6);
+        ticket = parkingLotManager.parking(car7);
+        ticket = parkingLotManager.parking(car8);
+        ticket = parkingLotManager.parking(car9);
+        ticket = parkingLotManager.parking(car10);
+        Car car11 = parkingLotManager.fetching(ticket);
         //then
         assertEquals(car10, car11);
     }
@@ -462,6 +462,39 @@ class ParkingBoyFacts { ;
         //then
         assertEquals(parkingBoy.getId() + "Please provide your parking ticket.", FailMsg.MANAGER_MSG.getMsg());
 
+    }
+
+    @Test
+    void should_return_msg_when_parking_given_car_parkingBoy_manager_with_no_position() {
+        //given
+        Car car = new Car("1");
+        Car car1 = new Car("2");
+        Car car2 = new Car("3");
+        Car car3 = new Car("4");
+        Car car4 = new Car("5");
+        Car car5 = new Car("6");
+        Car car6 = new Car("7");
+        Car car7 = new Car("8");
+        Car car8 = new Car("9");
+        Car car9 = new Car("10");
+        Car car10 = new Car("11");
+        ParkingBoy parkingBoy = new ParkingBoy(1);
+        ParkingLotManager parkingLotManager = new ParkingLotManager(1);
+        parkingLotManager.addParkingBoys(parkingBoy);
+        //when
+        Ticket result = parkingBoy.parking(car);
+        result = parkingBoy.parking(car1);
+        result = parkingBoy.parking(car2);
+        result = parkingBoy.parking(car3);
+        result = parkingBoy.parking(car4);
+        result = parkingBoy.parking(car5);
+        result = parkingBoy.parking(car6);
+        result = parkingBoy.parking(car7);
+        result = parkingBoy.parking(car8);
+        result = parkingBoy.parking(car9);
+        result = parkingBoy.parking(car10);
+        //then
+        assertEquals(parkingBoy.getId() + "Not enough position.", FailMsg.MANAGER_MSG.getMsg());
     }
 
 }
