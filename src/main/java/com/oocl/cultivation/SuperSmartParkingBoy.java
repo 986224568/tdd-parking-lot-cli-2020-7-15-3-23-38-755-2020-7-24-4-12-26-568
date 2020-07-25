@@ -77,6 +77,11 @@ public class SuperSmartParkingBoy implements ParkingBoys {
         return FailMsg.FAIL_MSG.getMsg();
     }
 
+    @Override
+    public void addParkingLot() {
+        parkingLotList.add(new ParkingLot(parkingLotList.size()+1, 10));
+    }
+
     public void addParkingLot(int maxNum) {
         parkingLotList.add(new ParkingLot(parkingLotList.size()+1, maxNum));
     }
