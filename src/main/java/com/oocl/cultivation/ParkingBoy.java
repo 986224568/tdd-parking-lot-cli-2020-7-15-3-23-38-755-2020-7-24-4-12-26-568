@@ -3,7 +3,7 @@ package com.oocl.cultivation;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class ParkingBoy implements ParkingBoys {
+public class ParkingBoy implements ParkingWorkers {
     private int id;
     private ArrayList<ParkingLot> parkingLotList;
 
