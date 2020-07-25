@@ -13,15 +13,15 @@ public class ParkingBoy {
             return ticket;
         }
         ticket = new Ticket(car.getID(), car.getID());
-        car.setState(State.parkedCar.getIndex());
+        parkingLot.parking(car);
         return ticket;
     }
 
     public Car fetching(Ticket ticket) {
         Car car = null;
         if (parkingLot.getCarByID(ticket.getCarID()).getState() == State.parkedCar.getIndex()) {
-            car = parkingLot.fetching(ticket);
-            car.setState(State.notParkedCar.getIndex());
+            car = parkingLot.fetching(ticket, this);
+            return car;
         }
         return car;
     }

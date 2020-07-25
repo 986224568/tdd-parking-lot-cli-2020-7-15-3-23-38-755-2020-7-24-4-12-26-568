@@ -17,7 +17,7 @@ public class Ticket {
         return carID;
     }
 
-    public boolean isValid(Ticket ticket) {
+    public boolean isValid() {
         return true;
     }
 }

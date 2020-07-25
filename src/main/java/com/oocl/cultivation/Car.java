@@ -10,7 +10,7 @@ public class Car {
 
     public Car(String ID) {
         this.ID = ID;
-        this.state = 0;
+        this.state = State.notParkedCar.getIndex();
     }
 
     public int getState() {
