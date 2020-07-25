@@ -10,7 +10,7 @@ public class Ticket {
     }
 
     public void setState(int state) {
-        state = state;
+        this.state = state;
     }
 
     public Ticket(String ID, String carID) {

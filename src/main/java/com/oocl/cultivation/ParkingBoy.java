@@ -23,6 +23,10 @@ public class ParkingBoy {
             FailMsg.FAIL_MSG.setMsg("Unrecognized parking ticket.");
             return car;
         }
+        if (ticket.getState() == State.usedTicket.getIndex()) {
+            FailMsg.FAIL_MSG.setMsg("Unrecognized parking ticket.");
+            return car;
+        }
         if (ticket.isValid() && parkingLot.getCarByID(ticket.getCarID()).getState() == State.parkedCar.getIndex()) {
             car = parkingLot.fetching(ticket, this);
             ticket.setState(State.usedTicket.getIndex());
