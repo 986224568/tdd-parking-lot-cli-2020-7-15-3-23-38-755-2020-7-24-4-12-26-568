@@ -180,7 +180,7 @@ class ParkingBoyFacts {
     }
 
     @Test
-    void should_new_parking_lotID_when_parking_more_than_one_lot_given_car_parkingBoy() {
+    void should_return_new_parking_lotID_when_parking_more_than_one_lot_given_car_parkingBoy() {
         //given
         Car car = new Car("1");
         Car car1 = new Car("2");
