@@ -32,7 +32,7 @@ public class ParkingBoy {
             FailMsg.FAIL_MSG.setMsg("Please provide your parking ticket.");
             return car;
         }
-        if (!ticket.isValid()) {
+        if (!ticket.isValid()) {//TODO
             FailMsg.FAIL_MSG.setMsg("Unrecognized parking ticket.");
         }
         if (ticket.getState() == State.usedTicket.getIndex()) {

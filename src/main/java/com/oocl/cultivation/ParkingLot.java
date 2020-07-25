@@ -24,7 +24,7 @@ public class ParkingLot {
 
     public Car fetching(Ticket ticket, ParkingBoy parkingBoy) {
         Car car = null;
-        if (ticket != null && ticket.isValid()) {
+        if (ticket != null) {
             for (Car car1 : carList) {
                 if (car1.getID() == ticket.getCarID()) {
                     car = car1;
