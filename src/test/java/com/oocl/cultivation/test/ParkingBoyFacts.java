@@ -246,7 +246,7 @@ class ParkingBoyFacts {
         //given
         Car car = new Car("1");
         Car car1 = new Car("2");
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(1);
+        SuperSmartParkingBoy smartParkingBoy = new SuperSmartParkingBoy(1);
         smartParkingBoy.addParkingLot(10);
         //when
         Ticket result = smartParkingBoy.parking(car);
@@ -260,7 +260,7 @@ class ParkingBoyFacts {
         //given
         Car car = new Car("1");
         Car car1 = new Car("2");
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(1);
+        SuperSmartParkingBoy smartParkingBoy = new SuperSmartParkingBoy(1);
         smartParkingBoy.addParkingLot(10);
         //when
         Ticket ticket = smartParkingBoy.parking(car);
@@ -282,5 +282,20 @@ class ParkingBoyFacts {
         result = superSmartParkingBoy.parking(car1);
         //then
         assertEquals(2, result.getParkingLotID());
+    }
+
+    @Test
+    void should_return_car_when_use_more_lot_parking_given_cars_superSmartParkingBoy() {
+        //given
+        Car car = new Car("1");
+        Car car1 = new Car("2");
+        SuperSmartParkingBoy superSmartParkingBoy = new SuperSmartParkingBoy(1);
+        superSmartParkingBoy.addParkingLot(10);
+        //when
+        Ticket ticket = superSmartParkingBoy.parking(car);
+        ticket = superSmartParkingBoy.parking(car1);
+        Car car3 = superSmartParkingBoy.fetching(ticket);
+        //then
+        assertEquals(car1, car3);
     }
 }
