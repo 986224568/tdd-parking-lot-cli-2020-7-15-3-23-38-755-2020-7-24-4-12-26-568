@@ -20,8 +20,11 @@ public class ParkingBoy {
     public Car fetching(Ticket ticket) {
         Car car = null;
         if (ticket == null) {
-            FailMsg.FAIL_MSG.setMsg("Unrecognized parking ticket.");
+            FailMsg.FAIL_MSG.setMsg("Please provide your parking ticket.");
             return car;
+        }
+        if (!ticket.isValid()) {
+            FailMsg.FAIL_MSG.setMsg("Unrecognized parking ticket.");
         }
         if (ticket.getState() == State.usedTicket.getIndex()) {
             FailMsg.FAIL_MSG.setMsg("Unrecognized parking ticket.");
