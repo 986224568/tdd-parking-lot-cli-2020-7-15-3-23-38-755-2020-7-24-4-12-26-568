@@ -16,7 +16,7 @@ public class ParkingBoy {
             return ticket;
         }
         for (ParkingLot parkingLot : parkingLotList) {
-            if (parkingLot.getMaxNum() > 0) {
+            if (parkingLot.getLeft() > 0) {
                 ticket = new Ticket(car.getID(), car.getID(), parkingLot.getID());
                 parkingLot.parking(car);
                 return ticket;
@@ -42,7 +42,7 @@ public class ParkingBoy {
         for (ParkingLot parkingLot : parkingLotList) {
             if (ticket.getParkingLotID() == parkingLot.getID()) {
                 if (parkingLot.getCarByID(ticket.getCarID()).getState() == State.parkedCar.getIndex()) {
-                    car = parkingLot.fetching(ticket, this);
+                    car = parkingLot.fetching(ticket);
                     ticket.setState(State.usedTicket.getIndex());
                     return car;
                 }
@@ -64,7 +64,7 @@ public class ParkingBoy {
     public ParkingBoy(int id) {
         this.id = id;
         parkingLotList = new ArrayList<>();
-        parkingLotList.add(new ParkingLot(1));
+        parkingLotList.add(new ParkingLot(1, 10));
     }
 
     public String getFailMsg() {
@@ -72,6 +72,6 @@ public class ParkingBoy {
     }
 
     public void addParkingLot() {
-        parkingLotList.add(new ParkingLot(parkingLotList.size()+1));
+        parkingLotList.add(new ParkingLot(parkingLotList.size()+1, 10));
     }
 }

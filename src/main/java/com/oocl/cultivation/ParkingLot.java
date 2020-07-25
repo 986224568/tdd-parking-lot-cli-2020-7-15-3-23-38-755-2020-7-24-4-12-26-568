@@ -4,14 +4,17 @@ import java.util.ArrayList;
 
 public class ParkingLot {
     private ArrayList<Car> carList;
-    private  int left;
+    private int left;
+    private int maxNum;
     private int ID;
 
-    public ParkingLot(int ID) {
+    public ParkingLot(int ID, int maxNum) {
         this.ID = ID;
-        carList = new ArrayList<>();
-        left = 10;
+        this.carList = new ArrayList<>();
+        this.left = maxNum;
+        this.maxNum = maxNum;
     }
+
 
 
     public void parking(Car car) {
@@ -22,7 +25,8 @@ public class ParkingLot {
         }
     }
 
-    public Car fetching(Ticket ticket, ParkingBoy parkingBoy) {
+
+    public Car fetching(Ticket ticket) {
         Car car = null;
         if (ticket != null) {
             for (Car car1 : carList) {
@@ -36,21 +40,12 @@ public class ParkingLot {
         return car;
     }
 
-    public Car fetching(Ticket ticket, SmartParkingBoy smartParkingBoy) {
-        Car car = null;
-        if (ticket != null && ticket.isValid()) {
-            for (Car car1 : carList) {
-                if (car1.getID() == ticket.getCarID()) {
-                    car = car1;
-                    break;
-                }
-            }
-            left++;
-        }
-        return car;
-    }
 
     public int getMaxNum() {
+        return maxNum;
+    }
+
+    public int getLeft() {
         return left;
     }
 

@@ -1,11 +1,9 @@
 package com.oocl.cultivation;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Random;
-import java.util.stream.Collectors;
 
-public class SmartParkingBoy {
+public class SuperSmartParkingBoy {
     private int id;
     private ArrayList<ParkingLot> parkingLotList;
 
@@ -19,7 +17,7 @@ public class SmartParkingBoy {
         ParkingLot parkingLot = null;
         int max = 0;
         for (ParkingLot parkingLot1 : parkingLotList) {
-            if (parkingLot1.getLeft() > max) {
+            if (parkingLot1.getLeft() >= max / parkingLot1.getMaxNum()) {
                 max = parkingLot1.getLeft();
                 parkingLot = parkingLot1;
             }
@@ -69,7 +67,7 @@ public class SmartParkingBoy {
         return new String(chars);
     }
 
-    public SmartParkingBoy(int id) {
+    public SuperSmartParkingBoy(int id) {
         this.id = id;
         parkingLotList = new ArrayList<>();
         parkingLotList.add(new ParkingLot(1, 10));
