@@ -100,7 +100,7 @@ class ParkingBoyFacts {
     @Test
     void should_return_msg_when_fetshing_given_wrong_ticket_parkingBoy() {
         //given
-        Ticket ticket = null;
+        Ticket ticket = new Ticket("999", "999");
         ParkingBoy parkingBoy = new ParkingBoy(999);
         //when
         Car result = parkingBoy.fetching(ticket);
@@ -127,5 +127,20 @@ class ParkingBoyFacts {
             msg = parkingBoy.getFailMsg();
         }
         assertEquals("Unrecognized parking ticket.", msg);
+    }
+
+    @Test
+    void should_return_msg_when_fetching_with_no_ticket() {
+        //given
+        Ticket ticket = null;
+        ParkingBoy parkingBoy = new ParkingBoy(999);
+        //when
+        Car result = parkingBoy.fetching(ticket);
+        //then
+        String msg = "";
+        if (result == null) {
+            msg = parkingBoy.getFailMsg();
+        }
+        assertEquals("Please provide your parking ticket.", msg);
     }
 }
