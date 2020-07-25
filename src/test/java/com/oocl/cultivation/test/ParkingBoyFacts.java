@@ -191,7 +191,7 @@ class ParkingBoyFacts {
         Car car9 = new Car("10");
         Car car10 = new Car("11");
         ParkingBoy parkingBoy = new ParkingBoy(1);
-        parkingBoy.addParkingLot();
+        parkingBoy.addParkingLot(10);
         //when
         Ticket result = parkingBoy.parking(car);
         result = parkingBoy.parking(car1);
@@ -223,7 +223,7 @@ class ParkingBoyFacts {
         Car car9 = new Car("10");
         Car car10 = new Car("11");
         ParkingBoy parkingBoy = new ParkingBoy(1);
-        parkingBoy.addParkingLot();
+        parkingBoy.addParkingLot(10);
         //when
         Ticket ticket = parkingBoy.parking(car);
         ticket = parkingBoy.parking(car1);
@@ -401,7 +401,7 @@ class ParkingBoyFacts {
         Car car9 = new Car("10");
         Car car10 = new Car("11");
         ParkingBoy parkingBoy = new ParkingBoy(1);
-        parkingBoy.addParkingLot();
+        parkingBoy.addParkingLot(10);
         //when
         Ticket result = parkingBoy.parking(car);
         result = parkingBoy.parking(car1);
@@ -433,7 +433,7 @@ class ParkingBoyFacts {
         Car car9 = new Car("10");
         Car car10 = new Car("11");
         ParkingBoy parkingBoy = new ParkingBoy(1);
-        parkingBoy.addParkingLot();
+        parkingBoy.addParkingLot(10);
         //when
         Ticket ticket = parkingBoy.parking(car);
         ticket = parkingBoy.parking(car1);
