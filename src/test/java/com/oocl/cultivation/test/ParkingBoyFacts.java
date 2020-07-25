@@ -28,7 +28,7 @@ class ParkingBoyFacts {
         //when
         Ticket result = parkingBoy.parking(car);
         //then
-        assertEquals(new Ticket("1", car.getID()).getID(), result.getID());
+        assertEquals(new Ticket("1", car.getID(),1).getID(), result.getID());
     }
 
     @Test
@@ -46,7 +46,7 @@ class ParkingBoyFacts {
     @Test
     void should_return_no_car_when_fetching_given_wrong_ticket_parkingBoy() {
         //given
-        Ticket ticket = new Ticket("999", "999");
+        Ticket ticket = new Ticket("999", "999", 999);
         ParkingBoy parkingBoy = new ParkingBoy(999);
         //when
         Car result = parkingBoy.fetching(ticket);
@@ -57,7 +57,7 @@ class ParkingBoyFacts {
     @Test
     void should_return_no_car_when_fetching_given_used_ticket_parkingBoy() {
         //given
-        Ticket ticket = new Ticket("999", "999");
+        Ticket ticket = new Ticket("999", "999", 999);
         ParkingBoy parkingBoy = new ParkingBoy(999);
         //when
         Car result = parkingBoy.fetching(ticket);
@@ -100,7 +100,7 @@ class ParkingBoyFacts {
     @Test
     void should_return_msg_when_fetshing_given_wrong_ticket_parkingBoy() {
         //given
-        Ticket ticket = new Ticket("999", "999");
+        Ticket ticket = new Ticket("999", "999", 999);
         ParkingBoy parkingBoy = new ParkingBoy(999);
         //when
         Car result = parkingBoy.fetching(ticket);
@@ -194,6 +194,7 @@ class ParkingBoyFacts {
         Car car9 = new Car("10");
         Car car10 = new Car("11");
         ParkingBoy parkingBoy = new ParkingBoy(1);
+        parkingBoy.addParkingLot();
         //when
         Ticket result = parkingBoy.parking(car);
         result = parkingBoy.parking(car1);
