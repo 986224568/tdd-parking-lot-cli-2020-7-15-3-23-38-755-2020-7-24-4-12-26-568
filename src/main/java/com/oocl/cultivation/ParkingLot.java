@@ -15,8 +15,6 @@ public class ParkingLot {
         this.maxNum = maxNum;
     }
 
-
-
     public void parking(Car car) {
         if (car != null && car.getState() == CarState.notParkedCar.getIndex() && left > 0) {
             carList.add(car);
@@ -24,7 +22,6 @@ public class ParkingLot {
             left--;
         }
     }
-
 
     public Car fetching(Ticket ticket) {
         Car car = null;
@@ -37,7 +34,6 @@ public class ParkingLot {
         }
         return car;
     }
-
 
     public int getMaxNum() {
         return maxNum;
@@ -58,9 +54,5 @@ public class ParkingLot {
 
     public int getID() {
         return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
     }
 }
