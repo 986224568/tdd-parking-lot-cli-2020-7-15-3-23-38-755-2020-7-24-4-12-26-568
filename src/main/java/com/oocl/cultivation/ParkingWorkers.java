@@ -47,17 +47,16 @@ public abstract class ParkingWorkers {
             notifyObserver("Unrecognized parking ticket.", this);
             return car;
         }
-        //ParkingLot parkingLot = parkingLotList.stream()
-        for (ParkingLot parkingLot : parkingLotList) {
-            if (ticket.getParkingLotID() == parkingLot.getID()) {
-                if (parkingLot.getCarByID(ticket.getCarID()).getState() == CarState.parkedCar.getIndex()) {
-                    car = parkingLot.fetching(ticket);
-                    ticket.setState(TicketState.usedTicket.getIndex());
-                    return car;
-                }
-            }
-        }
 
+        ParkingLot parkingLot = parkingLotList.stream()
+                .filter(item-> item.getID() == ticket.getParkingLotID())
+                .findFirst()
+                .get();
+        if (parkingLot.getCarByID(ticket.getCarID()).getState() == CarState.parkedCar.getIndex()) {
+            car = parkingLot.fetching(ticket);
+            ticket.setState(TicketState.usedTicket.getIndex());
+            return car;
+        }
         return car;
     }
 
