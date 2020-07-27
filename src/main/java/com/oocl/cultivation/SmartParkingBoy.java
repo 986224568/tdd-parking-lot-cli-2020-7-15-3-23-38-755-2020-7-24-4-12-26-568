@@ -4,12 +4,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class SmartParkingBoy extends ParkingWorkers {
-
-    @Override
-    public int getId() {
-        return super.getId();
-    }
-
     public Ticket parking(Car car) {
         Ticket ticket = null;
         if (car == null) {
@@ -33,22 +27,7 @@ public class SmartParkingBoy extends ParkingWorkers {
         FailMsg.FAIL_MSG.setMsg("Not enough position.");
         return ticket;
     }
-
-    public Car fetching(Ticket ticket) {
-        return super.fetching(ticket);
-    }
-
-
     public SmartParkingBoy(int id) {
         super(id);
-    }
-
-    public String getFailMsg() {
-        return super.getFailMsg();
-    }
-
-
-    public void addParkingLot(int maxNum) {
-        super.addParkingLot(maxNum);
     }
 }
