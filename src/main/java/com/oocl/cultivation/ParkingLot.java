@@ -18,9 +18,9 @@ public class ParkingLot {
 
 
     public void parking(Car car) {
-        if (car != null && car.getState() == State.notParkedCar.getIndex() && left > 0) {
+        if (car != null && car.getState() == CarState.notParkedCar.getIndex() && left > 0) {
             carList.add(car);
-            car.setState(State.parkedCar.getIndex());
+            car.setState(CarState.parkedCar.getIndex());
             left--;
         }
     }

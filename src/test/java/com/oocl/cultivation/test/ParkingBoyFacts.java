@@ -56,8 +56,8 @@ class ParkingBoyFacts { ;
         Ticket ticket = new Ticket("999", "999", 999);
         ParkingBoy parkingBoy = new ParkingBoy(999);
         //when
+        parkingBoy.fetching(ticket);
         Car result = parkingBoy.fetching(ticket);
-        result = parkingBoy.fetching(ticket);
         //then
         assertEquals(null, result);
     }
@@ -94,7 +94,7 @@ class ParkingBoyFacts { ;
     }
 
     @Test
-    void should_return_msg_when_fetshing_given_wrong_ticket_parkingBoy() {
+    void should_return_msg_when_fetching_given_wrong_ticket_parkingBoy() {
         //given
         Ticket ticket = new Ticket("999", "999", 999);
         ParkingBoy parkingBoy = new ParkingBoy(999);
@@ -109,7 +109,7 @@ class ParkingBoyFacts { ;
     }
 
     @Test
-    void should_return_msg_when_fetshing_given_used_ticket_parkingBoy() {
+    void should_return_msg_when_fetching_given_used_ticket_parkingBoy() {
         //given
         Car car = new Car("1");
         ParkingBoy parkingBoy = new ParkingBoy(999);
@@ -177,7 +177,7 @@ class ParkingBoyFacts { ;
 
     @Test
     void should_return_new_parking_lotID_when_parking_more_than_one_lot_given_car_parkingBoy() {
-        //given
+        //given          //TODO
         Car car = new Car("1");
         Car car1 = new Car("2");
         Car car2 = new Car("3");
@@ -191,7 +191,7 @@ class ParkingBoyFacts { ;
         Car car10 = new Car("11");
         ParkingBoy parkingBoy = new ParkingBoy(1);
         parkingBoy.addParkingLot(10);
-        //when
+        //when   //TODO
         Ticket result = parkingBoy.parking(car);
         result = parkingBoy.parking(car1);
         result = parkingBoy.parking(car2);
@@ -321,7 +321,7 @@ class ParkingBoyFacts { ;
     }
 
     @Test
-    void should_return_msg_when_fetshing_given_wrong_ticket_manager() {
+    void should_return_msg_when_fetching_given_wrong_ticket_manager() {
         //given
         Ticket ticket = new Ticket("999", "999", 999);
         ParkingLotManager parkingLotManager = new ParkingLotManager(999);

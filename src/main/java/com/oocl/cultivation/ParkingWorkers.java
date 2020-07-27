@@ -42,20 +42,17 @@ public abstract class ParkingWorkers {
             notifyObserver("Please provide your parking ticket.", this);
             return car;
         }
-        if (!ticket.isValid()) {
-            FailMsg.FAIL_MSG.setMsg("Unrecognized parking ticket.");
-            notifyObserver("Unrecognized parking ticket.", this);
-        }
-        if (ticket.getState() == State.usedTicket.getIndex()) {
+        if (!ticket.isValid() || ticket.getState() == TicketState.usedTicket.getIndex()) {
             FailMsg.FAIL_MSG.setMsg("Unrecognized parking ticket.");
             notifyObserver("Unrecognized parking ticket.", this);
             return car;
         }
+        //ParkingLot parkingLot = parkingLotList.stream()
         for (ParkingLot parkingLot : parkingLotList) {
             if (ticket.getParkingLotID() == parkingLot.getID()) {
-                if (parkingLot.getCarByID(ticket.getCarID()).getState() == State.parkedCar.getIndex()) {
+                if (parkingLot.getCarByID(ticket.getCarID()).getState() == CarState.parkedCar.getIndex()) {
                     car = parkingLot.fetching(ticket);
-                    ticket.setState(State.usedTicket.getIndex());
+                    ticket.setState(TicketState.usedTicket.getIndex());
                     return car;
                 }
             }
@@ -69,7 +66,7 @@ public abstract class ParkingWorkers {
     }
 
     public void addParkingLot(int maxNum) {
-        parkingLotList.add(new ParkingLot(parkingLotList.size()+1, maxNum));
+        parkingLotList.add(new ParkingLot(parkingLotList.size() + 1, maxNum));
     }
 
     public int getId() {

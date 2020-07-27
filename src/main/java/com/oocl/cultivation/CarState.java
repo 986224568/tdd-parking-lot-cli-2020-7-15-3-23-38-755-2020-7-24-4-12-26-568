@@ -1,10 +1,10 @@
 package com.oocl.cultivation;
 
-public enum State {
-    parkedCar(1), notParkedCar(2), usedTicket(3), notUsedTicket(4);
+public enum CarState {
+    parkedCar(1), notParkedCar(2);
     private int index;
 
-    State(int i) {
+    CarState(int i) {
         this.index = i;
     }
 
