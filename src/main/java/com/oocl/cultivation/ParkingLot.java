@@ -29,12 +29,10 @@ public class ParkingLot {
     public Car fetching(Ticket ticket) {
         Car car = null;
         if (ticket != null) {
-            for (Car car1 : carList) {
-                if (car1.getID() == ticket.getCarID()) {
-                    car = car1;
-                    break;
-                }
-            }
+            car = carList.stream()
+                    .filter(e -> e.getID().equals(ticket.getCarID()))
+                    .findFirst()
+                    .get();
             left++;
         }
         return car;
