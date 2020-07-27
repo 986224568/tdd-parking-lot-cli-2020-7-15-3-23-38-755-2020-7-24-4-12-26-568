@@ -72,14 +72,7 @@ public abstract class ParkingWorkers {
     public int getId() {
         return this.id;
     }
-    public String randomPassword() {
-        char[] chars = new char[6];
-        Random rnd = new Random();
-        for (int i = 0; i < 6; i++) {
-            chars[i] = (char) ('0' + rnd.nextInt(10));
-        }
-        return new String(chars);
-    }
+
     public void notifyObserver(String msg, ParkingWorkers parkingWorkers) {
         for(Observer observer : this.observerList) {
             observer.update(msg, parkingWorkers);
